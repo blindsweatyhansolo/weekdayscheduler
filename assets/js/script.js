@@ -1,0 +1,67 @@
+tasks = {};
+
+// TIME DECLARATIONS USING MOMENTJS
+var currentTime = moment();
+// returns time to nearest hour
+currentTime = currentTime.startOf("hour");
+// returns 9am for start of day
+var beforeTime = moment().startOf("day").add(9, "hours");
+// current date/time displayed in header
+$("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
+
+// FUNCTION TO CREATE TASKS IN TIME BLOCKS //
+// use click event to get $(this) for timeblock variable
+// create elements that make up task item (taskLi / taskP)
+// append p element to time block parent 
+// check due time with auditTime()
+// append to list on page 
+
+// FUNCTION TO LOAD TASKS FROM LOCAL STORAGE //
+// create tasks variable set to parsed LS getItem "tasks"
+// if nothing in LS, create new object to track task arrays by timeblock
+// loop over object properties then loop over sub-arrays
+
+// FUNCTION TO SAVE TASKS TO LOCAL STORAGE WHEN CLICKING SAVE ICON //
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
+// FUNCTION TO AUDIT TIME BLOCKS auditTime() //
+// get time from timeblock
+// convert time to moment object at 5pm (17) local time (L)
+// remove old classes
+// apply new classes if near/over time
+
+
+// SET TASKS TO BE SORTABLE (select by class)
+/**  connectWith / scroll / tolerance / helper
+ * ACTIVATE: add class to show item is actively selected
+ * DEACTIVATE: remove activate class
+ * OVER / OUT: add class for when an item enters or leaves connected list
+ * 
+ * UPDATE: triggers when contents of timeblock list have changed (re-ordered,
+ * removed, added, etc)  
+ * store task data in temporary array (tempArr)
+ * then loop over current set of children in sortable list
+ * add task data to temp array as object (push)
+ * trim down list's ID to match object property (replace)
+ * update array on tasks object and call saveTasks()
+ * 
+ * STOP: remove activate class
+ */
+
+// FUNCTION WHEN CLICKING SAVE BUTTON
+// update tasks array
+// auditTime()
+
+
+// setInt FUNCTION TO RUN auditTime EVERY 30 MINS //
+// setInterval(function(){
+//     $("timeblockclassnames").each(function(index, el){
+//         auditTime(el);
+//     });
+// }, (1000 * 60) * 30);
+
+
+// CALL loadTasks ON PAGE LOAD //
+// loadTasks();
