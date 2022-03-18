@@ -1,13 +1,16 @@
+$(document).ready(function(){
+    auditTime();
+    loadTasks();
+});
+
 tasks = {};
 
-// TIME DECLARATIONS USING MOMENTJS
-var currentTime = moment();
-// returns time to nearest hour
-currentTime = currentTime.startOf("hour");
-// returns 9am for start of day
-var beforeTime = moment().startOf("day").add(9, "hours");
-// current date/time displayed in header
+// TIME DECLARATIONS USING MOMENT
 $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
+
+// gets current time at hour (24 hr format)
+var currentHour = moment().format("HH");
+
 
 // FUNCTION TO CLEAR LOCAL STORAGE/CONTENTS
 $("#clearFields").click(function(event) {
@@ -17,6 +20,31 @@ $("#clearFields").click(function(event) {
     localStorage.clear();
 });
 
+// compare current hour to timediv id, change to past present or future
+var auditTime = function(){
+    $(".time-div").each(function(){
+        var timeDiv = $(this).attr("id");
+        
+        if (currentHour === timeDiv) {
+            $(this).find(".time-block").removeClass("past");
+            $(this).find(".time-block").addClass("present");
+        } else if (currentHour > timeDiv) {
+            $(this).find(".time-block").removeClass("present");
+            $(this).find(".time-block").addClass("past");
+        } else if (currentHour < timeDiv) {
+            $(this).find(".time-block").removeClass("present");
+            $(this).find(".time-block").addClass("future");
+        }
+    });
+};
+
+// setInt FUNCTION TO RUN auditTime EVERY 30 MINS //
+setInterval(function(){
+    $(".time-div").each(function(index, el){
+    auditTime(el);
+    });
+    console.log("this is checked");
+}, (1000 * 60) * 30);
 
 // FUNCTION TO CREATE TASKS IN TIME BLOCKS //
 // use click event to get $(this) for timeblock variable
@@ -35,23 +63,8 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-// FUNCTION TO AUDIT TIME BLOCKS auditTime() //
-// get time from timeblock
-// convert time to moment object at 5pm (17) local time (L)
-// remove old classes
-// apply new classes if near/over time
-
 // FUNCTION WHEN CLICKING SAVE BUTTON
 // update tasks array
-// auditTime()
-
-
-// setInt FUNCTION TO RUN auditTime EVERY 30 MINS //
-// setInterval(function(){
-//     $("timeblockclassnames").each(function(index, el){
-//         auditTime(el);
-//     });
-// }, (1000 * 60) * 30);
 
 
 // CALL loadTasks ON PAGE LOAD //
