@@ -3,11 +3,8 @@ $(document).ready(function(){
     loadTasks();
 });
 
-tasks = {};
-
 // TIME DECLARATIONS USING MOMENT
 $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
-
 // gets current time at hour (24 hr format)
 var currentHour = moment().format("HH");
 
@@ -20,7 +17,8 @@ $("#clearFields").click(function(event) {
     localStorage.clear();
 });
 
-// compare current hour to timediv id, change to past present or future
+// FUNCTION TO AUDIT TIME FOR EACH TIMEBLOCK //
+// compare current hour to each timediv id, change to past present or future class
 var auditTime = function(){
     $(".time-div").each(function(){
         var timeDiv = $(this).attr("id");
@@ -38,7 +36,7 @@ var auditTime = function(){
     });
 };
 
-// setInt FUNCTION TO RUN auditTime EVERY 30 MINS //
+// FUNCTION TO RUN auditTime EVERY 30 MINS //
 setInterval(function(){
     $(".time-div").each(function(index, el){
     auditTime(el);
@@ -46,26 +44,24 @@ setInterval(function(){
     console.log("this is checked");
 }, (1000 * 60) * 30);
 
-// FUNCTION TO CREATE TASKS IN TIME BLOCKS //
-// use click event to get $(this) for timeblock variable
-// create elements that make up task item (taskLi / taskP)
-// append p element to time block parent 
-// check due time with auditTime()
-// append to list on page 
-
-// FUNCTION TO LOAD TASKS FROM LOCAL STORAGE //
-// create tasks variable set to parsed LS getItem "tasks"
-// if nothing in LS, create new object to track task arrays by timeblock
-// loop over object properties then loop over sub-arrays
 
 // FUNCTION TO SAVE TASKS TO LOCAL STORAGE WHEN CLICKING SAVE ICON //
-var saveTasks = function() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+$(".saveBtn").click(function(event){
+    event.preventDefault();
+    var inputValue = $(this).siblings(".form-control").val();
+    var time = $(this).parent().attr("id")
+    localStorage.setItem(time, inputValue);
+});
+
+// FUNCTION TO LOAD SAVED TASKS FROM LOCALSTORAGE INTO RESPECTIVE TIMEBLOCKS //
+var loadTasks = function(){
+    $("#09 .time-block").val(localStorage.getItem("09"));
+    $("#10 .time-block").val(localStorage.getItem("10"));
+    $("#11 .time-block").val(localStorage.getItem("11"));
+    $("#12 .time-block").val(localStorage.getItem("12"));
+    $("#13 .time-block").val(localStorage.getItem("13"));
+    $("#14 .time-block").val(localStorage.getItem("14"));
+    $("#15 .time-block").val(localStorage.getItem("15"));
+    $("#16 .time-block").val(localStorage.getItem("16"));
+    $("#17 .time-block").val(localStorage.getItem("17"));
 };
-
-// FUNCTION WHEN CLICKING SAVE BUTTON
-// update tasks array
-
-
-// CALL loadTasks ON PAGE LOAD //
-// loadTasks();
