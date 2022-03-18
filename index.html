@@ -18,21 +18,108 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" 
+        integrity="sha512-UyNhw5RNpQaCai2EdC+Js0QL4RlVmiq41DkmCJsRV3ZxipG2L0HhTqIf/H9Hp8ez2EnFlkBnjRGJU2stW3Lj+w==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
+    
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <!-- DISPLAY CURRENT TIME AND DATE -->
+        <div class="row d-flex justify-content-center pt-3">    
+            <p id="currentDay" class="lead col-12"></p>
+            <!-- BUTTON TO CLEAR ALL FIELDS -->
+            <button id="clearFields" type="button" class="btn btn-secondary col-12 col-md-2">Clear Your Day!</button>
+        </div>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
-    </div>
+    
+    <!-- MAIN CONTAINER FOR TIMEBLOCKS -->
+    <main>
+        <div class="container">
+            <!-- Timeblocks go here -->
+
+            <!-- 9AM TIMEBLOCK -->
+            <div id="09" class="row time-div py-1">
+                <!-- leftside hour marker -->
+                <div class="col-md-1 hour">9 am</div>
+                <!-- text area for tasks -->
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <!-- save button and icon -->
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+
+            <!-- 10AM TIMEBLOCK -->
+            <div id="10" class="row time-div py-1">
+                <div class="col-md-1 hour">10 am</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 11AM TIMEBLOCK -->
+            <div id="11" class="row time-div py-1">
+                <div class="col-md-1 hour">11 am</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 12PM TIMEBLOCK -->
+            <div id="12" class="row time-div py-1">
+                <div class="col-md-1 hour">12 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 1PM TIMEBLOCK -->
+            <div id="13" class="row time-div py-1">
+                <div class="col-md-1 hour">1 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 2PM TIMEBLOCK -->
+            <div id="14" class="row time-div py-1">
+                <div class="col-md-1 hour">2 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 3PM TIMEBLOCK -->
+            <div id="15" class="row time-div py-1">
+                <div class="col-md-1 hour">3 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 4PM TIMEBLOCK -->
+            <div id="16" class="row time-div py-1">
+                <div class="col-md-1 hour">4 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+            
+            <!-- 5PM TIMEBLOCK -->
+            <div id="17" class="row time-div py-1">
+                <div class="col-md-1 hour">5 pm</div>
+                <textarea class="col-md-10 time-block description form-control"></textarea>
+                <button class="col-md-1 saveBtn"><span class="oi oi-task mx-2 my-2"></span></button>
+            </div>
+
+        </div>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
