@@ -9,6 +9,15 @@ var beforeTime = moment().startOf("day").add(9, "hours");
 // current date/time displayed in header
 $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
 
+// FUNCTION TO CLEAR LOCAL STORAGE/CONTENTS
+$("#clearFields").click(function(event) {
+    event.preventDefault;
+    // clear all unsaved textarea input
+    $("textarea").val("");
+    localStorage.clear();
+});
+
+
 // FUNCTION TO CREATE TASKS IN TIME BLOCKS //
 // use click event to get $(this) for timeblock variable
 // create elements that make up task item (taskLi / taskP)
