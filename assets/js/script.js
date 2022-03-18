@@ -32,24 +32,6 @@ var saveTasks = function() {
 // remove old classes
 // apply new classes if near/over time
 
-
-// SET TASKS TO BE SORTABLE (select by class)
-/**  connectWith / scroll / tolerance / helper
- * ACTIVATE: add class to show item is actively selected
- * DEACTIVATE: remove activate class
- * OVER / OUT: add class for when an item enters or leaves connected list
- * 
- * UPDATE: triggers when contents of timeblock list have changed (re-ordered,
- * removed, added, etc)  
- * store task data in temporary array (tempArr)
- * then loop over current set of children in sortable list
- * add task data to temp array as object (push)
- * trim down list's ID to match object property (replace)
- * update array on tasks object and call saveTasks()
- * 
- * STOP: remove activate class
- */
-
 // FUNCTION WHEN CLICKING SAVE BUTTON
 // update tasks array
 // auditTime()

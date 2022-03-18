@@ -28,6 +28,7 @@ body {
   .time-block{
     text-align: center;
     border-radius: 15px;
+    background-color: #d5a906;
   }
   
   .row {
@@ -37,9 +38,13 @@ body {
   }
   
   .hour {
-    background-color: #ffffff;
-    color: #000000;
-    border-top: 1px dashed #000000;
+    background-color: #d52d06;
+    color: white;
+    border-right: 1px solid #000000;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
   }
   
   .past {
@@ -69,4 +74,6 @@ body {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
+
+  
   
