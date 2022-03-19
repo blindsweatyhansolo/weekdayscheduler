@@ -1,13 +1,12 @@
 $(document).ready(function(){
-    auditTime();
     loadTasks();
+    auditTime();
 });
 
 // TIME DECLARATIONS USING MOMENT
 $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm A"));
 // gets current time at hour (24 hr format)
 var currentHour = moment().format("HH");
-
 
 // FUNCTION TO CLEAR LOCAL STORAGE/CONTENTS
 $("#clearFields").click(function(event) {
@@ -33,13 +32,12 @@ var auditTime = function(){
     });
 };
 
-
 // FUNCTION TO RUN auditTime EVERY 30 MINS //
 setInterval(function(){
     $(".time-div").each(function(index, el){
     auditTime(el);
     });
-    console.log("this is checked");
+    // console.log("this is checked");
 }, (1000 * 60) * 30);
 
 
@@ -56,8 +54,7 @@ $(".saveBtn").click(function(event){
 
     var inputValue = $(this).siblings(".form-control").val();
     var time = $(this).parent().attr("id");
-
-    console.log(time)
+    // console.log(time)
 
     var taskStorage = JSON.parse(localStorage.getItem("tasks"));
     var updated = { ...taskStorage, [time]: inputValue};
@@ -65,12 +62,8 @@ $(".saveBtn").click(function(event){
     // then adds [time]: inputValue to object as new key value pair
 
     localStorage.setItem("tasks", JSON.stringify(updated));
-
-    console.log(updated);
-
+    // console.log(updated);
 });
-
-
 
 // FUNCTION TO LOAD SAVED TASKS FROM LOCALSTORAGE INTO RESPECTIVE TIMEBLOCKS //
 var loadTasks = function(){
@@ -100,37 +93,4 @@ var loadTasks = function(){
         // object square bracket notation ensures key set to a number correctly reads as a string 
         $(this).find(".time-block").val(timeVal);
     });
-
-
-
-    /* var tasks = ["aaa", "bbb"];
-    var firstVar = tasks[0];
-    console.log('array: ', firstVar); //aaa
-
-    var tasks = {
-        "first": "aaa",
-        "second": "bbb"
-    };
-
-    var firstVar = tasks.first;
-    console.log('object dot notation: ', firstVar);  //aaa
-
-    var tasks2 = {
-        "09": "aaa",
-        "10": "bbb"
-    };
-
-    var firstVar = tasks2["09"];
-    console.log('object square bracket notation: ', firstVar);//aaa */
-
-
- /*    $("#09 .time-block").val(localStorage.getItem("09"));
-    $("#10 .time-block").val(localStorage.getItem("10"));
-    $("#11 .time-block").val(localStorage.getItem("11"));
-    $("#12 .time-block").val(localStorage.getItem("12"));
-    $("#13 .time-block").val(localStorage.getItem("13"));
-    $("#14 .time-block").val(localStorage.getItem("14"));
-    $("#15 .time-block").val(localStorage.getItem("15"));
-    $("#16 .time-block").val(localStorage.getItem("16"));
-    $("#17 .time-block").val(localStorage.getItem("17")); */
 };
