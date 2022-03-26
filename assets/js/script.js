@@ -47,20 +47,12 @@ $(".saveBtn").click(function(event){
     var inputValue = $(this).siblings(".form-control").val();
     var time = $(this).parent().attr("id");
     localStorage.setItem(time, inputValue);
-});
-
-$(".saveBtn").click(function(event){
-    event.preventDefault();
-
-    var inputValue = $(this).siblings(".form-control").val();
-    var time = $(this).parent().attr("id");
-    // console.log(time)
 
     var taskStorage = JSON.parse(localStorage.getItem("tasks"));
     var updated = { ...taskStorage, [time]: inputValue};
     // ... copies data previously set from taskStorage as an argument
     // then adds [time]: inputValue to object as new key value pair
-
+    
     localStorage.setItem("tasks", JSON.stringify(updated));
     // console.log(updated);
 });
