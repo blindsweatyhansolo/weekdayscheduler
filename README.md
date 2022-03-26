@@ -42,4 +42,4 @@ GitHub Repo: https://github.com/blindsweatyhansolo/weekdayscheduler
 
 Screenshot:
 
-![Screenshot of the WeekDay Scheduler]()
+![Screenshot of the WeekDay Scheduler](./assets/images/weekdayschedulerScreenshot.png)
